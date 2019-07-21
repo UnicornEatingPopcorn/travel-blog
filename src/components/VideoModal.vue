@@ -4,14 +4,13 @@
       .content.has-text-centered
         p.control
           button(v-on:click="launch" class="button is-primary") Launch modal
-    .modal(v-bind:class="{'is-active':isActive}")
+    .modal(v-bind:class="{'is-active':isActive}" @click="close")
       .modal-background
         .modal-content
           .box
             .content.has-text-centered
               p.control
                 h3 {{message}}
-        button(@click="close" class="modal-close")
 </template>
 
 <script>
@@ -25,17 +24,13 @@ export default {
     launch: function() {
       this.isActive = true;
     },
-    close: function() {
-      this.isActive = false;
+    close: function(event) {
+      if((event.target).closest(".container")) {
+      this.isActive = false
+      }
     }
   },
   computed: {
-    // Vue.document.click(function(event)) {
-    //   if (!(event.target).closest(".modal").length)) {
-    //     this.isActive = false
-    //   }
-    // },
-
     message: function() {
       return "Hello Bulma Modal";
     }
