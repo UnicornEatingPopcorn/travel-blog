@@ -17,38 +17,32 @@
             .timeline-marker.is-primary
             .timeline-content
               .tile.is-ancestor
-                .tile.is-vertical.is-8
-                  .tile
-                    .tile.is-parent.is-vertical
-                      article.tile.is-child.notification.is-primary
-                        p.title Vertical...
-                        p.subtitle Top tile
-                      article.tile.is-child.notification.is-warning
-                        p.title ...tiles
-                        p.subtitle Bottom tile
-                    .tile.is-parent
-                      article.tile.is-child.notification.is-info
-                        figure.image.is-6
-                          img(src="https://bulma.io/images/placeholders/640x480.png")
+                .tile.is-vertical.is-4
+                  .tile.is-parent.is-vertical
+                    article.tile.is-child.notification.is-primary
+                      figure.image.is-6
+                        img(src="https://bulma.io/images/placeholders/640x480.png")
+                    article.tile.is-child.notification.is-warning
+                       figure.image.is-6
+                        img(src="https://bulma.io/images/placeholders/640x480.png")
+                    article.tile.is-child.notification.is-warning
+                       figure.image.is-6
+                        img(src="https://bulma.io/images/placeholders/640x480.png")
+
+                .tile.is-parent.is-vertical.is-4
+                    article.tile.is-child.notification.is-info
+                      p.title ...tiles
+                      p.subtitle Bottom tile
+                .tile.is-vertical
                   .tile.is-parent
-                    article.tile.is-child.notification.is-danger
-                      p.title Wide tile
-                      p.subtitle Aligned with the right tile
-                      .content
-                        // Content
-                .tile.is-parent
-                  article.tile.is-child.notification.is-success
-                    figure.image.is-16by9
-                      iframe.has-ratio(width="640" height="360" src="https://www.youtube.com/embed/YE7VzlLtp-4?showinfo=0" frameborder="0" allowfullscreen)
-            //- .columns
-            //-   .column
-            //-     a(id="launch-modal" v-on:click="launch")
-            //-       figure.image.is-5by4
-            //-         img(src="https://i.imgur.com/CpUmo0Q.jpg")
-            //-     VideoModal(v-bind:class="{'is-active':isActive}")
-            //-
-            //-   .column
-            //-     p Timeline content - Can include any HTML element
+                      article.tile.is-child.is-danger.notification
+                        p.title Article
+                        p.subtitle Greece travel
+                  .tile.is-parent
+                    article.tile.is-child.notification.is-success
+                      figure.image.is-16by9
+                        iframe.has-ratio(width="640" height="360" src="https://www.youtube.com/embed/YE7VzlLtp-4?showinfo=0" frameborder="0" allowfullscreen)
+                      p.title  hahahahahadff jfsdhkdglfjgkf kdgg'bmghnb hdssf;kghl
         .timeline-item
           .timeline-marker.is-image.is-32x32
             img(src='http://bulma.io/images/placeholders/32x32.png')
@@ -68,24 +62,9 @@
 </template>
 
 <script>
-import VideoModal from "@/components/VideoModal.vue"
 
 export default {
-  components: {
-    VideoModal
-  },
-  data() {
-    return {
-      isActive: false
-    }
-  },
-  methods: {
-    launch: function() {
-      this.isActive = true;
-    }
-  },
-  name: 'app'
- }
+   }
 </script>
 
 <style lang="sass">
