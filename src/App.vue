@@ -1,63 +1,70 @@
-<template>
-  <div id="app">
-    <div class="container">
-      <section class="section">
-        <h1 class="title title-yellow">
-          Welcome to One Click Travel Blog
-        </h1>
-        <p class="subtitle">
-        All photos and videos on our profile in <a href="https://www.instagram.com/one_click_trip">Instagram</a>
-        </p>
-      </section>
-      <div class="pipe"></div>
-      <section class="section">
-        <div class="timeline">
-          <header class="timeline-header">
-            <span class="tag is-medium is-warning">Nowadays</span>
-          </header>
-          <div class="timeline-item is-warning">
-            <div class="timeline-marker is-primary"></div>
-            <div class="timeline-content">
-              <div class="columns">
-                <div class="column">
-                  <VideoModal/>
-
-
-                </div>
-                <div class="column">
-                  <p>Timeline content - Can include any HTML element</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="timeline-item">
-            <div class="timeline-marker is-image is-32x32">
-              <img src="http://bulma.io/images/placeholders/32x32.png">
-            </div>
-            <div class="timeline-content">
-              <p class="heading">February 2016</p>
-              <p>Timeline content - Can include any HTML element</p>
-            </div>
-          </div>
-          <header class="timeline-header">
-            <span class="tag is-primary">2017</span>
-          </header>
-          <div class="timeline-item">
-            <div class="timeline-marker is-icon">
-              <i class="fa fa-flag"></i>
-            </div>
-            <div class="timeline-content">
-              <p class="heading">March 2017</p>
-              <p>Timeline content - Can include any HTML element</p>
-            </div>
-          </div>
-          <div class="timeline-header">
-            <span class="tag is-medium is-primary">End</span>
-          </div>
-        </div>
-      </section>
-    </div>
-  </div>
+<template lang="pug">
+#app
+  .container
+    section.section
+      h1.title.title-yellow
+        | Welcome to One Click Travel Blog
+      p.subtitle
+        | All photos and videos on our profile in
+        a(href='https://www.instagram.com/one_click_trip')  Instagram
+    .pipe
+    section.section
+      .container
+        .timeline
+          header.timeline-header
+            span.tag.is-medium.is-warning Nowadays
+          .timeline-item.is-warning
+            .timeline-marker.is-primary
+            .timeline-content
+              .tile.is-ancestor
+                .tile.is-vertical.is-8
+                  .tile
+                    .tile.is-parent.is-vertical
+                      article.tile.is-child.notification.is-primary
+                        p.title Vertical...
+                        p.subtitle Top tile
+                      article.tile.is-child.notification.is-warning
+                        p.title ...tiles
+                        p.subtitle Bottom tile
+                    .tile.is-parent
+                      article.tile.is-child.notification.is-info
+                        figure.image.is-6
+                          img(src="https://bulma.io/images/placeholders/640x480.png")
+                  .tile.is-parent
+                    article.tile.is-child.notification.is-danger
+                      p.title Wide tile
+                      p.subtitle Aligned with the right tile
+                      .content
+                        // Content
+                .tile.is-parent
+                  article.tile.is-child.notification.is-success
+                    figure.image.is-16by9
+                      iframe.has-ratio(width="640" height="360" src="https://www.youtube.com/embed/YE7VzlLtp-4?showinfo=0" frameborder="0" allowfullscreen)
+            //- .columns
+            //-   .column
+            //-     a(id="launch-modal" v-on:click="launch")
+            //-       figure.image.is-5by4
+            //-         img(src="https://i.imgur.com/CpUmo0Q.jpg")
+            //-     VideoModal(v-bind:class="{'is-active':isActive}")
+            //-
+            //-   .column
+            //-     p Timeline content - Can include any HTML element
+        .timeline-item
+          .timeline-marker.is-image.is-32x32
+            img(src='http://bulma.io/images/placeholders/32x32.png')
+          .timeline-content
+            p.heading February 2016
+            p Timeline content - Can include any HTML element
+        header.timeline-header
+          span.tag.is-primary 2017
+        .timeline-item
+          .timeline-marker.is-icon
+            i.fa.fa-flag
+          .timeline-content
+            p.heading March 2017
+            p Timeline content - Can include any HTML element
+        .timeline-header
+          span.tag.is-medium.is-primary End
 </template>
 
 <script>
@@ -66,6 +73,16 @@ import VideoModal from "@/components/VideoModal.vue"
 export default {
   components: {
     VideoModal
+  },
+  data() {
+    return {
+      isActive: false
+    }
+  },
+  methods: {
+    launch: function() {
+      this.isActive = true;
+    }
   },
   name: 'app'
  }
